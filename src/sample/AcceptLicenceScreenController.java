@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
 
 
@@ -12,6 +13,12 @@ import java.io.IOException;
 public class AcceptLicenceScreenController {
     @FXML
     private Button cancelButton;
+
+    @FXML
+    private Button nextButton;
+
+    @FXML
+    private CheckBox termsCheckbox;
 
     @FXML
     private void handlePressCancel(ActionEvent event) {
@@ -40,5 +47,14 @@ public class AcceptLicenceScreenController {
         /* Close the current scene */
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.hide();
+    }
+
+    @FXML
+    private void handleClickCheckbox(ActionEvent event) {
+        if(termsCheckbox.isSelected() == true) {
+            nextButton.setDisable(false);
+        } else {
+            nextButton.setDisable(true);
+        }
     }
 }
