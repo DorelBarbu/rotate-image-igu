@@ -17,7 +17,7 @@
             <ButtonBar prefHeight="40.0" prefWidth="200.0">
                <buttons>
                   <Button id="browseButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#handlePressBrowse" prefHeight="26.0" prefWidth="100.0" text="Browse Image" />
-                  <Button mnemonicParsing="false" text="Next" />
+                  <Button fx:id="nextButton" onAction="#handlePressNext" mnemonicParsing="false" text="Next" disable="true" />
                </buttons>
             </ButtonBar>
          </children>
