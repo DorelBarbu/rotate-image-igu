@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-   fx:controller="sample.AcceptLicenceScreenController">
+<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AcceptLicenceScreenController">
    <children>
       <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" spacing="10.0" style="-fx-padding: 10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -25,7 +24,7 @@
                <children>
                   <ButtonBar prefHeight="32.0" prefWidth="200.0">
                     <buttons>
-                        <Button mnemonicParsing="false" text="Next" />
+                        <Button id="nextButton" mnemonicParsing="false" onAction="#handlePressNext" text="Next" />
                         <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handlePressCancel" text="Cancel" />
                     </buttons>
                   </ButtonBar>

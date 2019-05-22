@@ -17,9 +17,15 @@ public class AcceptLicenceScreenController {
     @FXML
     private void handlePressCancel(ActionEvent event) {
         System.out.println("Cancel button pressed");
-        /*Close the current scene*/
-//        Stage stage = (Stage) cancelButton.getScene().getWindow();
-//        stage.hide();
+        /* Close the current scene */
+        Stage stage = (Stage) cancelButton.getScene().getWindow();
+        stage.hide();
+
+    }
+
+    @FXML
+    private void handlePressNext(ActionEvent event) {
+        System.out.println("Next button pressed");
         /*Open the select image screen*/
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -32,6 +38,8 @@ public class AcceptLicenceScreenController {
         } catch(IOException e) {
             System.out.println("ERROR: Cannot open the SelectImage screen");
         }
-
+        /* Close the current scene */
+        Stage stage = (Stage) cancelButton.getScene().getWindow();
+        stage.hide();
     }
 }
