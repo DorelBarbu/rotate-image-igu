@@ -24,7 +24,7 @@ public class Image {
     public Image(String path) {
         try {
             img = ImageIO.read(new File(path));
-            System.out.println("Image read successfully");
+            System.out.println("Image read successfully in sample.Image");
         } catch(IOException e) {
             System.out.println("Cannot read image");
         }

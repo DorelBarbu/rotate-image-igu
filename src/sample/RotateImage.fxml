@@ -12,18 +12,22 @@
          <children>
             <AnchorPane>
                <children>
-                  <HBox prefHeight="490.0" prefWidth="772.0" spacing="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <HBox prefHeight="490.0" prefWidth="772.0" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rotate the image as you like" />
+                        <VBox fx:id="leftPanel" prefHeight="526.0" prefWidth="354.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rotate the image as you like" />
+                           </children>
+                        </VBox>
                         <VBox prefHeight="490.0" prefWidth="389.0" spacing="25.0">
                            <children>
-                              <VBox spacing="10.0">
+                              <VBox alignment="CENTER" spacing="10.0">
                                  <children>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Original image" />
-                                    <ImageView fx:id="originalImage" fitHeight="206.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fx:id="originalImage" fitHeight="222.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" />
                                  </children>
                               </VBox>
-                              <VBox spacing="10.0">
+                              <VBox alignment="CENTER" spacing="10.0">
                                  <children>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rotated image" />
                                     <ImageView fx:id="rotatedImage" fitHeight="222.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" />
