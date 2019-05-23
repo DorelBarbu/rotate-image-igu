@@ -14,7 +14,7 @@
                <children>
                   <HBox prefHeight="490.0" prefWidth="772.0" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <VBox fx:id="leftPanel" prefHeight="526.0" prefWidth="354.0">
+                        <VBox fx:id="leftPanel" alignment="TOP_CENTER" prefHeight="526.0" prefWidth="354.0" spacing="10.0">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rotate the image as you like" />
                            </children>

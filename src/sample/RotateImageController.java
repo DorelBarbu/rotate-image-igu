@@ -26,6 +26,10 @@ public class RotateImageController {
         this.sampleImage = sampleImage;
     }
 
+    public sample.Image getSampleImage() {
+        return this.sampleImage;
+    }
+
     public VBox getLeftPanel() {
         return this.leftPanel;
     }

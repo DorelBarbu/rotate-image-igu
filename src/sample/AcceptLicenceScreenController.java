@@ -11,6 +11,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class AcceptLicenceScreenController {
+    Stage primaryStage;
+
+    public void setStage(Stage stage) {
+        this.primaryStage = stage;
+    }
+
     @FXML
     private Button cancelButton;
 
@@ -40,6 +46,7 @@ public class AcceptLicenceScreenController {
             Stage stage = new Stage();
             stage.setTitle("New Window");
             stage.setScene(scene);
+            ((SelectImageController)fxmlLoader.getController()).setStage(this.primaryStage);
             stage.show();
         } catch(IOException e) {
             System.out.println("ERROR: Cannot open the SelectImage screen");

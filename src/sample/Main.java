@@ -10,10 +10,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("AcceptLicenceScreen.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AcceptLicenceScreen.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
         primaryStage.setTitle("Licence Agreement");
         primaryStage.setScene(new Scene(root, 600, 300));
         primaryStage.show();
+        ((AcceptLicenceScreenController) fxmlLoader.getController()).setStage(primaryStage);
     }
 
 

@@ -3,12 +3,14 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import java.io.File;
 import javafx.embed.swing.SwingFXUtils;
@@ -19,6 +21,11 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class SelectImageController {
+    Stage primaryStage;
+
+    public void setStage(Stage stage) {
+        this.primaryStage = stage;
+    }
 
     private Image image;
 
@@ -29,6 +36,9 @@ public class SelectImageController {
 
     @FXML
     private Button nextButton;
+
+    @FXML
+    private Button displayInfoButton;
 
     @FXML
     public void handlePressBrowse(ActionEvent event) {
@@ -51,12 +61,46 @@ public class SelectImageController {
                 imageView.setImage(image);
                 /* Enable the next button */
                 nextButton.setDisable(false);
+                /* Enable the display info button */
+                displayInfoButton.setDisable(false);
             } catch(IOException e) {
                 System.out.println("Cannot read image");
             }
 
         }
 
+    }
+
+    @FXML
+    public void displayInfo(ActionEvent event) {
+        Stage stage = this.primaryStage;
+        Scene scene = new Scene(new Group());
+        stage.setTitle("Table View Sample");
+        stage.setWidth(300);
+        stage.setHeight(500);
+
+        final Label label = new Label("Address Book");
+        label.setFont(new Font("Arial", 20));
+
+        TableView table = new TableView();
+
+        table.setEditable(true);
+
+        TableColumn firstNameCol = new TableColumn("First Name");
+        TableColumn lastNameCol = new TableColumn("Last Name");
+        TableColumn emailCol = new TableColumn("Email");
+
+        table.getColumns().addAll(firstNameCol, lastNameCol, emailCol);
+
+        final VBox vbox = new VBox();
+        vbox.setSpacing(5);
+        vbox.setPadding(new Insets(10, 0, 0, 10));
+        vbox.getChildren().addAll(label, table);
+
+        ((Group) scene.getRoot()).getChildren().addAll(vbox);
+
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="247.0" prefWidth="439.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SelectImageController">
    <children>
       <VBox alignment="CENTER" layoutX="70.0" layoutY="-1.0" prefHeight="290.0" prefWidth="439.0" spacing="10.0" style="-fx-padding: 10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -17,7 +16,8 @@
             <ButtonBar prefHeight="40.0" prefWidth="200.0">
                <buttons>
                   <Button id="browseButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#handlePressBrowse" prefHeight="26.0" prefWidth="100.0" text="Browse Image" />
-                  <Button fx:id="nextButton" onAction="#handlePressNext" mnemonicParsing="false" text="Next" disable="true" />
+                  <Button disable="true" mnemonicParsing="false" onAction="#displayInfo" text="Display Info" fx:id="displayInfoButton" />
+                  <Button fx:id="nextButton" disable="true" mnemonicParsing="false" onAction="#handlePressNext" text="Next" />
                </buttons>
             </ButtonBar>
          </children>
