@@ -16,7 +16,7 @@
                      <children>
                         <VBox fx:id="leftPanel" alignment="TOP_CENTER" prefHeight="526.0" prefWidth="354.0" spacing="10.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rotate the image as you like" />
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rotate Image" />
                            </children>
                         </VBox>
                         <VBox prefHeight="490.0" prefWidth="389.0" spacing="25.0">

@@ -1,4 +1,6 @@
 package sample;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -7,6 +9,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
@@ -26,6 +29,26 @@ public class SelectImageController {
     public void setStage(Stage stage) {
         this.primaryStage = stage;
     }
+
+    public static class ImageTableDisplay {
+        private final SimpleStringProperty name;
+        private final SimpleStringProperty size;
+
+        private ImageTableDisplay(String name, String size) {
+            this.name = new SimpleStringProperty(name);
+            this.size = new SimpleStringProperty(size);
+        }
+
+        public String getName() {
+            return name.get();
+        }
+
+        public String getSize() {
+            return size.get();
+        }
+    }
+
+    private ImageTableDisplay imageTableDisplay;
 
     private Image image;
 
@@ -48,6 +71,7 @@ public class SelectImageController {
         fileChooser.setTitle("Select an image");
         /* Save the chosen file */
         File file = fileChooser.showOpenDialog(null);
+        this.imageTableDisplay = new ImageTableDisplay(file.getName(), String.valueOf(file.length()/1024));
         if(file == null) {
             System.out.println("File button cancled");
         } else {
@@ -75,22 +99,35 @@ public class SelectImageController {
     public void displayInfo(ActionEvent event) {
         Stage stage = this.primaryStage;
         Scene scene = new Scene(new Group());
-        stage.setTitle("Table View Sample");
+        stage.setTitle("Image Info");
         stage.setWidth(300);
-        stage.setHeight(500);
+        stage.setHeight(200);
 
-        final Label label = new Label("Address Book");
-        label.setFont(new Font("Arial", 20));
+        final Label label = new Label("Image info");
 
         TableView table = new TableView();
 
         table.setEditable(true);
 
-        TableColumn firstNameCol = new TableColumn("First Name");
-        TableColumn lastNameCol = new TableColumn("Last Name");
-        TableColumn emailCol = new TableColumn("Email");
+        TableColumn nameCol = new TableColumn("Image Name");
+        TableColumn sizeCol = new TableColumn("Image size (KB)");
 
-        table.getColumns().addAll(firstNameCol, lastNameCol, emailCol);
+        nameCol.setCellValueFactory(
+                new PropertyValueFactory<ImageTableDisplay,String>("name")
+        );
+
+        sizeCol.setCellValueFactory(
+                new PropertyValueFactory<ImageTableDisplay,String>("size")
+        );
+
+        table.getItems().add(this.imageTableDisplay);
+
+        table.prefHeightProperty().bind(Bindings.size(table.getItems()).multiply(table.getFixedCellSize()).add(51));
+
+
+        table.getColumns().add(nameCol);
+        table.getColumns().add(sizeCol);
+        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
         final VBox vbox = new VBox();
         vbox.setSpacing(5);
